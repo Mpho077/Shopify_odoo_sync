@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sale_order_form_view_shopify" model="ir.ui.view">
+        <field name="name">sale.order.form.shopify</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_sync_from_shopify" type="object" string="Sync from Shopify" class="oe_stat_button" invisible="not shopify_order_id" icon="fa-refresh"/>
+                <button name="action_view_in_shopify" type="object" string="View in Shopify" class="oe_stat_button" invisible="not shopify_order_id" icon="fa-external-link"/>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="shopify_order_number" readonly="1" invisible="not shopify_order_id"/>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Shopify" name="shopify" invisible="not shopify_order_id">
+                    <group>
+                        <group>
+                            <field name="shopify_backend_id" readonly="1"/>
+                            <field name="shopify_order_id" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="shopify_financial_status" readonly="1"/>
+                            <field name="shopify_fulfillment_status" readonly="1"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="sale_order_list_view_shopify" model="ir.ui.view">
+        <field name="name">sale.order.list.shopify</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="shopify_order_number" string="Shopify #" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="sale_order_search_view_shopify" model="ir.ui.view">
+        <field name="name">sale.order.search.shopify</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='my_sale_orders_filter']" position="after">
+                <separator/>
+                <filter string="Shopify Orders" name="shopify_orders" domain="[('shopify_order_id', '!=', False)]"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
