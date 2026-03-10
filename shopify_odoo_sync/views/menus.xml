@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo>
-    <menuitem id="menu_shopify_root" name="Shopify" sequence="50" web_icon="shopify_odoo_sync,static/description/icon.png"/>
-    <menuitem id="menu_shopify_stores" name="Stores" parent="menu_shopify_root" action="shopify_backend_action" sequence="10"/>
-    <menuitem id="menu_shopify_logs" name="Sync Logs" parent="menu_shopify_root" action="shopify_sync_log_action" sequence="20"/>
-</odoo>
