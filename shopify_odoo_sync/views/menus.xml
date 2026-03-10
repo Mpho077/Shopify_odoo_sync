@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_shopify_price_sync"
+              name="Shopify Price Sync"
+              parent="sale.menu_sale_config"
+              action="shopify_price_sync_action"
+              sequence="90"/>
+</odoo>

@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_shopify_backend_user,shopify.backend user,model_shopify_backend,base.group_user,1,0,0,0
+access_shopify_backend_manager,shopify.backend manager,model_shopify_backend,sales_team.group_sale_manager,1,1,1,1
+access_shopify_sync_log_user,shopify.sync.log user,model_shopify_sync_log,base.group_user,1,0,0,0
+access_shopify_sync_log_manager,shopify.sync.log manager,model_shopify_sync_log,sales_team.group_sale_manager,1,1,1,1
+access_shopify_price_sync_user,shopify.price.sync user,model_shopify_price_sync,base.group_user,1,0,0,0
+access_shopify_price_sync_manager,shopify.price.sync manager,model_shopify_price_sync,sales_team.group_sale_manager,1,1,1,1
